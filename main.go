@@ -1,8 +1,8 @@
 package main
 
 import (
+	"gintest/usfunc"
 	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -49,7 +49,7 @@ func main() {
 
 	r.GET("/compare" , func(c *gin.Context) {
 		c.HTML(http.StatusOK , "default/compare.html" , gin.H{
-			"score" : 85,
+			"score" : usfunc.Add(50 , 60),
 			"data" : []int{1 , 3 , 5},
 		})
 	})
