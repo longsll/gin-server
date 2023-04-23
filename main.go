@@ -16,7 +16,7 @@ func main() {
 
 	r := gin.Default() //定义引擎
 	//配置html模板文件位置
-	r.LoadHTMLGlob("templates/*")
+	r.LoadHTMLGlob("templates/**/*") //templates二层下
 	//返回字符串
 	// r.GET("/", func(c *gin.Context) {
 	// 	c.String(200,"zhi","hello world")
@@ -34,21 +34,21 @@ func main() {
 			Desc: "简述",
 			Content: "内容",
 		}
-		c.HTML(http.StatusOK , "news.html" , gin.H{
+		c.HTML(http.StatusOK , "admin/news.html" , gin.H{
 			"title" : "新闻页面",
 			"news" : news,
 		})
 	})
 	
 	r.GET("/goods" , func(c *gin.Context) {
-		c.HTML(http.StatusOK , "goods.html" , gin.H{
+		c.HTML(http.StatusOK , "admin/goods.html" , gin.H{
 			"price" : 20,
 			"title" : "商品",
 		})
 	})
 
 	r.GET("/" , func(c *gin.Context) {
-		c.HTML(http.StatusOK , "index.html" , gin.H{
+		c.HTML(http.StatusOK , "default/index.html" , gin.H{
 			"title" : "首页",
 		})
 	})

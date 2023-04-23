@@ -1,3 +1,4 @@
+{{define "default/news.html"}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>{{.title}}</h2>
+    <h1>default 页面</h1>
+    <div>{{.title}}</div>
+    <br>
+    <p>{{.news.Title}}</p>
+    <p>{{.news.Desc}}</p>
+    <p>{{.news.Content}}</p>
 </body>
 </html>
+{{end}}
