@@ -47,6 +47,13 @@ func main() {
 		})
 	})
 
+	r.GET("/compare" , func(c *gin.Context) {
+		c.HTML(http.StatusOK , "default/compare.html" , gin.H{
+			"score" : 85,
+			"data" : []int{1 , 3 , 5},
+		})
+	})
+
 	r.GET("/" , func(c *gin.Context) {
 		c.HTML(http.StatusOK , "default/index.html" , gin.H{
 			"title" : "首页",
