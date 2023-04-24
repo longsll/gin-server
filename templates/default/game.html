@@ -1,4 +1,4 @@
-{{define "default/news.html"}}
+{{define "default/game.html"}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,16 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-
-    {{template "public/header.html" . }}
-
-    <h1>default 页面</h1>
-    <div>{{.title}}</div>
-    <br>
-    <p>{{.news.Title}}</p>
-    <p>{{.news.Desc}}</p>
-    <p>{{.news.Content}}</p>
+<body>  
+    {{template "kof" . }}
 </body>
 </html>
 {{end}}

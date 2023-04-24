@@ -43,7 +43,7 @@ func main() {
 			Desc: "简述",
 			Content: "内容",
 		}
-		c.HTML(http.StatusOK , "admin/news.html" , gin.H{
+		c.HTML(http.StatusOK , "default/news.html" , gin.H{
 			"title" : "新闻页面",
 			"news" : news,
 		})
@@ -60,6 +60,12 @@ func main() {
 		c.HTML(http.StatusOK , "default/compare.html" , gin.H{
 			"score" : 85,
 			"data" : []int{1 , 3 , 5},
+		})
+	})
+
+	r.GET("/game" , func(c *gin.Context) {
+		c.HTML(http.StatusOK , "default/game.html" , gin.H{
+
 		})
 	})
 
