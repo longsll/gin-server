@@ -26,6 +26,11 @@ func main() {
 	//配置html模板文件位置
 	r.LoadHTMLGlob("templates/**/*") //templates二层下
 
+	//配置静态文件  第一个表示路由 , 第二个表示对应路径
+	r.Static("/kofcss" ,"./kofstatic/static/css")
+	r.Static("/kofimage" ,"./kofstatic/static/images")
+	r.Static("/kofjs" ,"./kofstatic/js")
+
 	//返回字符串
 	// r.GET("/", func(c *gin.Context) {
 	// 	c.String(200,"zhi","hello world")

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>拳皇</title>
-    <link rel="stylesheet" href="/templates/kof-master/static/css/base.css">
+    <link rel="stylesheet" href="/kofcss/base.css">
     <script src="https://cdn.acwing.com/static/jquery/js/jquery-3.3.1.min.js"></script>
 </head>
 
@@ -15,7 +15,12 @@
     <div id="kof"></div>
     <div id="kof1" style="top: 1000px;"></div>
 
-    <div>KOF</div>
+    <script type="module">
+        import { KOF } from '/kofjs/base.js';
+
+        let kof = new KOF('kof');
+        let kof1 = new KOF('kof1');
+    </script>   
 </body>
 
 </html>
