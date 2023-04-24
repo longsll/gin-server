@@ -13,7 +13,9 @@
     <div>{{.title}}</div>
     <br>
     <!-- 获取后台数据 -->
-    <div>{{.price}}</div> 
+    <div>{{.price}}</div>
+    <!-- 使用自定义函数 -->
+    <div>{{Add .price .price}}</div> 
 </body>
 </html>
 {{end}}
