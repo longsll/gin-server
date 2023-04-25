@@ -4,15 +4,11 @@ import (
 	"gintest/usfunc"
 	"net/http"
 	"text/template"
-
+	"gintest/route"
 	"github.com/gin-gonic/gin"
 )
 
-type Article struct {
-	Title string
-	Desc string
-	Content string
-}
+
 
 func main() {
 
@@ -41,32 +37,10 @@ func main() {
 			"message": "pong",
 		})
 	})
-	//加载html前端
-	r.GET("/news" , func(c *gin.Context) {
-		news := &Article{
-			Title: "新闻标题",
-			Desc: "简述",
-			Content: "内容",
-		}
-		c.HTML(http.StatusOK , "default/news.html" , gin.H{
-			"title" : "新闻页面",
-			"news" : news,
-		})
-	})
 	
-	r.GET("/goods" , func(c *gin.Context) {
-		c.HTML(http.StatusOK , "admin/goods.html" , gin.H{
-			"price" : usfunc.Add(50 , 60),
-			"title" : "商品",
-		})
-	})
-
-	r.GET("/compare" , func(c *gin.Context) {
-		c.HTML(http.StatusOK , "default/compare.html" , gin.H{
-			"score" : 85,
-			"data" : []int{1 , 3 , 5},
-		})
-	})
+	//路由分组
+	route.Defaultinit(r)
+	
 
 	r.GET("/game" , func(c *gin.Context) {
 		c.HTML(http.StatusOK , "default/game.html" , gin.H{
@@ -74,11 +48,6 @@ func main() {
 		})
 	})
 
-	r.GET("/" , func(c *gin.Context) {
-		c.HTML(http.StatusOK , "default/index.html" , gin.H{
-			"title" : "首页",
-		})
-	})
 	r.Run(":8080") // 监听并在 0.0.0.0:8080 上启动服务
 	//go get github.com/pilu/fresh 热加载
 }
