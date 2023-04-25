@@ -1,8 +1,7 @@
 package route
 
 import (
-	"gintest/usfunc"
-	"net/http"
+	"gintest/contoller/defaultcontoller"
 
 	"github.com/gin-gonic/gin"
 )
@@ -17,36 +16,12 @@ func Defaultinit(r *gin.Engine) {
 	defaultrouter := r.Group("/")
 	{
 		//加载html前端
-		defaultrouter.GET("/" , func(c *gin.Context) {
-			c.HTML(http.StatusOK , "default/index.html" , gin.H{
-				"title" : "首页",
-			})
-		})
+		defaultrouter.GET("/" , defaultcontoller.Defcon{}.Deffront)
 
-		defaultrouter.GET("/news" , func(c *gin.Context) {
-			news := &Article{
-				Title: "新闻标题",
-				Desc: "简述",
-				Content: "内容",
-			}
-			c.HTML(http.StatusOK , "default/news.html" , gin.H{
-				"title" : "新闻页面",
-				"news" : news,
-			})
-		})
+		defaultrouter.GET("/news" , defaultcontoller.Defcon{}.Defnews)
 		
-		defaultrouter.GET("/goods" , func(c *gin.Context) {
-			c.HTML(http.StatusOK , "admin/goods.html" , gin.H{
-				"price" : usfunc.Add(50 , 60),
-				"title" : "商品",
-			})
-		})
+		defaultrouter.GET("/goods" , defaultcontoller.Defcon{}.Defgoods)
 
-		defaultrouter.GET("/compare" , func(c *gin.Context) {
-			c.HTML(http.StatusOK , "default/compare.html" , gin.H{
-				"score" : 85,
-				"data" : []int{1 , 3 , 5},
-			})
-		})	
+		defaultrouter.GET("/compare" , defaultcontoller.Defcon{}.Defcompare)	
 	}
 }
