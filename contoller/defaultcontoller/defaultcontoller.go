@@ -1,8 +1,10 @@
 package defaultcontoller
 
 import (
+	"fmt"
 	"gintest/usfunc"
 	"net/http"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -14,6 +16,17 @@ type Article struct {
 }
 
 type Defcon struct{}
+
+//输出执行时间啊
+func (con Defcon) Initmiddleware(c *gin.Context) {
+	start := time.Now().UnixNano()
+
+	c.Next() //相当于对下面的执行defer
+
+	end := time.Now().UnixNano()
+
+	fmt.Println(end - start)
+}
 
 func (con Defcon) Deffront(c *gin.Context) {
 	c.HTML(http.StatusOK , "default/index.html" , gin.H{
