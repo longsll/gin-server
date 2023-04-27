@@ -41,7 +41,8 @@ func main() {
 	//路由分组
 	route.Defaultinit(r)
 	
-
+	route.Usertinit(r)
+	
 	r.GET("/game" , func(c *gin.Context) {
 		c.HTML(http.StatusOK , "default/game.html" , gin.H{
 
