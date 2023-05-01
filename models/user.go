@@ -5,5 +5,5 @@ type User struct {
 	User string
 	Age int
 	Addtime int
-	Email string
+	Pwd string
 }

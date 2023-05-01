@@ -29,8 +29,11 @@ func Defaultinit(r *gin.Engine) {
 func Usertinit(r *gin.Engine) {
 	userrouter := r.Group("/user")
 	{
-		userrouter.GET("/index" , admincontoller.Usercontoller{}.Index)	
-		userrouter.GET("/add" , admincontoller.Usercontoller{}.Add)	
+		userrouter.GET("/" , admincontoller.Usercontoller{}.Defaultpage)
+		userrouter.POST("/logg" , admincontoller.Usercontoller{}.Logger)
+		userrouter.GET("/logg/index" , admincontoller.Usercontoller{}.Index)	
+		userrouter.GET("/logg/add" , admincontoller.Usercontoller{}.Adddeau)
+		userrouter.GET("/logg/add/suc",admincontoller.Usercontoller{}.Addef)
 		userrouter.GET("/delete" , admincontoller.Usercontoller{}.Delete)	
 		userrouter.GET("/edit" , admincontoller.Usercontoller{}.Edit)	
 	}
